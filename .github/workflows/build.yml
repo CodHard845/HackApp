@@ -12,7 +12,7 @@ jobs:
       - name: Select Xcode
         run: sudo xcode-select -s /Applications/Xcode.app
 
-      - name: Create Basic App Structure
+      - name: Create App Structure & Info.plist
         run: |
           mkdir -p Payload/HackerApp.app
           cat << 'EOF' > Payload/HackerApp.app/Info.plist
@@ -43,7 +43,7 @@ jobs:
           swiftc -target arm64-apple-ios15.0 -sdk $(xcrun --sdk iphoneos --show-sdk-path) \
                  -parse-as-library HackerApp/HackerApp/HackerAppApp.swift \
                  HackerApp/HackerApp/ContentView.swift \
-                 -o Payload/HackerApp/HackerApp
+                 -o Payload/HackerApp.app/HackerApp
 
       - name: Package IPA
         run: |
