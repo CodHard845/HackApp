@@ -45,9 +45,9 @@ jobs:
                  HackerApp/HackerApp/ContentView.swift \
                  -o Payload/HackerApp.app/HackerApp
 
-      - name: Package IPA
+      - name: Package IPA Correctly
         run: |
-          zip -r HackerApp.ipa Payload/
+          zip -r HackerApp.ipa Payload
 
       - name: Upload IPA Artifact
         uses: actions/upload-artifact@v4
